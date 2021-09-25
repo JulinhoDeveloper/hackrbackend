@@ -8,6 +8,11 @@ require('dotenv').config();
 
 const app = express();
 
+//DB
+mongoose.connect(process.env.DATABASE_CLOUD, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => 
+console.log('conectado')).catch(err => console.log(err));
+
+
 // importar rotas
 const authRouter = require('./routes/auth');
 
