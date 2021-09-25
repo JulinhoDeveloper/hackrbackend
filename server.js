@@ -10,12 +10,12 @@ const app = express();
 
 // importar rotas
 const authRouter = require('./routes/auth');
-const { json } = require('body-parser');
+
 
 //app middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(cors()); 
+app.use(cors({ origin: process.env.CLIENT_URL })); 
 
 //middlewares
 app.use('/api/', authRouter);
